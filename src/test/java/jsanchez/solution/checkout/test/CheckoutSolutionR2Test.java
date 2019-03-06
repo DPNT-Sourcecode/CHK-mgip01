@@ -24,7 +24,7 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("AAAAAA"), equalTo(260));
         assertThat(checkout.checkout("AAAAAAAA"), equalTo(360));
         // item B
-        assertThat(checkout.checkout("BB"), equalTo(45));
+        assertThat(checkout.checkout("BBB"), equalTo(75));
         assertThat(checkout.checkout("BBBB"), equalTo(90));
         assertThat(checkout.checkout("BBBBBBBBB"), equalTo(190));
         // item C
@@ -41,4 +41,5 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("ABEE"),equalTo(130));
     }
 }
+
 
