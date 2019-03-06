@@ -284,6 +284,11 @@ public class CheckoutSolution {
             return -1;
         }
 
+        for(item i : item.values()){
+            if(i.isHaveCombOffer()){
+                products = processCombinationOffer(products, i);
+            }
+        }
         for (item i : item.values()) {
             if (i.isHaveFreeItemOffer()) {
                 // calculate price by item/product and get the remain items in the collection
@@ -380,5 +385,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
