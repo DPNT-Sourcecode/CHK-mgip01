@@ -33,4 +33,9 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("DD"), equalTo(30));
         assertThat(checkout.checkout("DDDD"),equalTo(60));
     }
+
+    @Test
+    public void freeTest(){
+        assertThat(checkout.checkout("ABEE"),equalTo(130));
+    }
 }

@@ -16,12 +16,6 @@ public class CheckoutSolution {
         } else if(skus.length()<=0){
             return 0;
         }
-        // legal products
-        List<String> references = new ArrayList<String>();
-        references.add("A");
-        references.add("B");
-        references.add("C");
-        references.add("D");
 
         // have items, creation of list
         List<String> products = Stream.of(skus.split("")).collect(Collectors.toList());
@@ -51,4 +45,3 @@ public class CheckoutSolution {
         //throw new SolutionNotImplementedException();
     }
 }
-
