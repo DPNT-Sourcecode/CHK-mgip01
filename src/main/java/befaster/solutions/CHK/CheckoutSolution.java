@@ -321,7 +321,7 @@ public class CheckoutSolution {
         // price of item/product will be zero
         // and then will not be necessary add the product price to the total price of
         // basket
-        if (!collect.isEmpty() && collect.size() > 1) {
+        if (!collect.isEmpty()) {
             product.getSpecialOffers().forEach(so -> {
                 if (so.getFreeItem().getItemRef().equals(product.getItemRef())) {
                     // calculate packs
@@ -358,7 +358,7 @@ public class CheckoutSolution {
         // price of item/product will be zero
         // and then will not be necessary add the product price to the total price of
         // basket
-        if (!collect.isEmpty() && collect.size() > 1) {
+        if (!collect.isEmpty()) {
             int remainItems = collect.size();
             for (offer o : product.getOffers()) {
                 sum((remainItems / o.getNumItems()) * o.getPrice());
@@ -385,5 +385,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 

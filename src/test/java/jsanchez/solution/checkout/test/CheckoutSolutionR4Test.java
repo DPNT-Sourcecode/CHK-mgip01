@@ -26,7 +26,7 @@ public class CheckoutSolutionR4Test {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
         assertThat(checkout.checkout("RRRQQ"), equalTo(180));
         assertThat(checkout.checkout("UUUU"), equalTo(120));
-        assertThat(checkout.checkout("KK"), equalTo(120));
+        assertThat(checkout.checkout("KK"), equalTo(150));
         assertThat(checkout.checkout("HHHHHHHHHH"), equalTo(80));
         assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
         assertThat(checkout.checkout("P"), equalTo(50));
@@ -89,5 +89,6 @@ public class CheckoutSolutionR4Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
 
