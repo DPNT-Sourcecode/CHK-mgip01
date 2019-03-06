@@ -56,6 +56,3 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
-
-
-

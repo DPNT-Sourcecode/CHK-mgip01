@@ -277,7 +277,7 @@ public class CheckoutSolution {
 
         // remove all legal products, if the size of list is greater than 0, exist illegal reference of products
         for (item i : item.values()) {
-            cloneProducts.removeIf(p -> p.equals(i.getItemRef());
+            cloneProducts.removeIf(p -> p.equals(i.getItemRef()));
         }
 
         if (cloneProducts.size() > 0) {
@@ -380,8 +380,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
