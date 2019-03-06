@@ -31,17 +31,7 @@ public class CheckoutSolution {
         if(cloneProducts.size()>0){
             return -1;
         }
-
-        // calculation of prices
-        Integer priceProductA = ((Collections.frequency(products, "A") / 3)*130) + ((Collections.frequency(products, "A") % 3)*50);
-
-        Integer priceProductB = ((Collections.frequency(products, "B") / 2)*45) + ((Collections.frequency(products, "B") % 2)*30);
-
-        Integer priceProductC = Collections.frequency(products, "C")*20;
-
-        Integer priceProductD = Collections.frequency(products, "D")*15;
-
-        return priceProductA + priceProductB + priceProductC + priceProductD;
-        //throw new SolutionNotImplementedException();
+        
     }
 }
+
