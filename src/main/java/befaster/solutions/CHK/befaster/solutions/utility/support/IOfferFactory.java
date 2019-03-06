@@ -22,4 +22,3 @@ public interface IOfferFactory {
     List<Offer> createOffer(IFactory.EProduct eProduct);
 
 }
-

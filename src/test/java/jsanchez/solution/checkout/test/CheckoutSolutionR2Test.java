@@ -41,5 +41,3 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("ABEE"),equalTo(130));
     }
 }
-
-
