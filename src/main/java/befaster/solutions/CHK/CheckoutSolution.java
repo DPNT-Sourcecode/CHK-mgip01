@@ -277,32 +277,56 @@ public class CheckoutSolution {
             return -1;
         }
 
-        for (String p : products) {
-
-            Product product = ProductFactory.getInstance().createProduct(IFactory.EProduct.valueOf(p));
-            List<Offer> offerList = OfferFactory.getInstance().createOffer(IFactory.EProduct.valueOf(p));
-            List<String> productList = products.stream().filter(prd -> prd.equals(p)).collect(Collectors.toList());
-            if (offerList.size() > 0) {
-                for (Offer offer : offerList) {
-                     if(offer.getFreeEproducts().size()==0) {
-                         if (Collections.frequency(products, p) / offer.getNumItems() > 0) {
-                             sum((productList.size() / offer.getNumItems()) * offer.getPrice());
-                             sum((productList.size() % offer.getNumItems()) * product.getPrice());
-                             break;
-                         }
-                     }else if(offer.getFreeEproducts().size()>0){
-
-                     }else{
-
-                     }
-                }
-            } else {
-                sum(product.getPrice());
+        for (item i : item.values()) {
+            if (i.isHaveOffer()) {
+                // calculate price by item/product and get the remain items in the collection
+                products = processOffer(products, i);
             }
         }
 
-        // offers by frecuency
+        for (item i : item.values()) {
+            if (!i.isHaveSpecialOffer() && !i.isHaveOffer() && !i.isHaveCombOffer()) {
+                // calculate price by item/product and get the remain items in the collection
+                products = processItems(products, i);
+            }
+        }
+
 
         return getTotalPrice();
     }
+
+    private List<String> processOffer(List<String> items, final item product) {
+        List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
+
+        // if the list not empty process the product, if the list is empty the total
+        // price of item/product will be zero
+        // and then will not be necessary add the product price to the total price of
+        // basket
+        if (!collect.isEmpty()) {
+            int remainItems = collect.size();
+            for (offer o : product.getOffers()) {
+                sum((remainItems / o.getNumItems()) * o.getPrice());
+                // local remain items by product
+                remainItems = remainItems % o.getNumItems();
+            }
+
+            // sum the price of local remain items by product
+            sum(remainItems * product.getPrice());
+        }
+        return items;
+    }
+
+    private List<String> processItems(List<String> items, item product) {
+        List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
+
+        // if the list not empty process the product, if the list is empty the total
+        // price of item/product will be zero
+        // and then will not be necessary add the product price to the total price of
+        // basket
+        if (!collect.isEmpty()) {
+            sum(collect.size() * product.getPrice());
+        }
+        return items;
+    }
 }
+
