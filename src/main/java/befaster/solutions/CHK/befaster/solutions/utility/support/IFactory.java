@@ -18,7 +18,8 @@ public interface IFactory {
         }
     }
 
-    Product createProduct(product p);
+    Product createProduct(product productRef);
 }
+
 
 
