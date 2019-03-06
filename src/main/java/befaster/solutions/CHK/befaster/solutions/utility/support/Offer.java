@@ -2,16 +2,16 @@ package befaster.solutions.CHK.befaster.solutions.utility.support;
 
 import java.util.List;
 
-public class Offers {
+public class Offer {
 
     private Integer numItems;
     private Integer Price;
-    private List<IFactory.EProduct> freeEProducts;
+    private List<IFactory.EProduct> freeEproducts;
 
-    public Offers(Integer numItems, Integer price, List<IFactory.EProduct> freeEProducts) {
+    public Offer(Integer numItems, Integer price, List<IFactory.EProduct> freeEproducts) {
         this.numItems = numItems;
         Price = price;
-        this.freeEProducts = freeEProducts;
+        this.freeEproducts = freeEproducts;
     }
 
     public Integer getNumItems() {
@@ -22,8 +22,7 @@ public class Offers {
         return Price;
     }
 
-    public List<IFactory.EProduct> getFreeEProducts() {
-        return freeEProducts;
+    public List<IFactory.EProduct> getFreeEproducts() {
+        return freeEproducts;
     }
 }
-

@@ -17,6 +17,6 @@ public interface IOfferFactory {
         }
     }
 
-
+    Offer createOffer(EOffer eOffer);
 
 }
