@@ -19,9 +19,9 @@ public class OfferFactory implements IOfferFactory {
         List<IFactory.EProduct> freeEproducts = new ArrayList<IFactory.EProduct>();
         switch (eProduct) {
             case A:
-                return new Offer(3, 130, null);
+                return new Offer(3, 130, freeEproducts);
             case B:
-                return new Offer(2, 45, null);
+                return new Offer(2, 45, freeEproducts);
             case E:
                 freeEproducts.add(IFactory.EProduct.B);
                 return new Offer(2, 0, freeEproducts);
@@ -30,3 +30,4 @@ public class OfferFactory implements IOfferFactory {
         }
     }
 }
+

@@ -60,10 +60,11 @@ public class CheckoutSolution {
             Product product = ProductFactory.getInstance().createProduct(IFactory.EProduct.valueOf(p));
             Offer offer = OfferFactory.getInstance().createOffer(IFactory.EProduct.valueOf(p));
             List<String> productList = products.stream().filter(prd -> prd.equals(p)).collect(Collectors.toList());
-            if(offer!=null){
+            if(offer!=null && offer.getFreeEproducts().size()==0){
                 if(Collections.frequency(products, p) / offer.getNumItems() > 0){
                     sum((productList.size() / offer.getNumItems()) * offer.getPrice());
                     sum((productList.size() % offer.getNumItems()) * offer.getPrice());
+                    break;
                 }
             }else {
                 sum(product.getPrice());
@@ -75,4 +76,5 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 }
+
 
