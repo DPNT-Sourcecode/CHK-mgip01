@@ -154,7 +154,16 @@ enum item {
         }
         return combOffers;
     }
-    
+
+    public ArrayList<String> getListCombinationItems(){
+        ArrayList<String> combinationItems = new ArrayList<String>();
+        combinationItems.add("S");
+        combinationItems.add("T");
+        combinationItems.add("X");
+        combinationItems.add("Y");
+        combinationItems.add("Z");
+        return combinationItems;
+    }
 }
 
 // offer linked to item
@@ -391,7 +400,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
