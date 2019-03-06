@@ -17,6 +17,7 @@ public interface IOfferFactory {
         }
     }
 
-    Offer createOffer(EOffer eOffer);
+    Offer createOffer(IFactory.EProduct eProduct);
 
 }
+

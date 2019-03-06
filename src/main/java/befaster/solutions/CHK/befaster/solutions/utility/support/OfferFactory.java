@@ -15,9 +15,9 @@ public class OfferFactory implements IOfferFactory {
     }
 
     @Override
-    public Offer createOffer(EOffer eOffer) {
+    public Offer createOffer(IFactory.EProduct eProduct) {
         List<IFactory.EProduct> freeEproducts = new ArrayList<IFactory.EProduct>();
-        switch (eOffer) {
+        switch (eProduct) {
             case A:
                 return new Offer(3, 130, null);
             case B:
@@ -30,6 +30,7 @@ public class OfferFactory implements IOfferFactory {
         }
     }
 }
+
 
 
 
