@@ -18,6 +18,7 @@ public class CheckoutSolutionR4Test {
     @Test
     public void isolateTest(){
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(875));
+        assertThat(checkout.checkout("AAAAA"), equalTo(200));
     }
 
     @Test
@@ -88,4 +89,5 @@ public class CheckoutSolutionR4Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
