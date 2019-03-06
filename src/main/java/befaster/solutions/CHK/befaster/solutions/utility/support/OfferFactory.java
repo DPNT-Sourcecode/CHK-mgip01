@@ -1,10 +1,18 @@
 package befaster.solutions.CHK.befaster.solutions.utility.support;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class OfferFactory implements IOfferFactory {
+
+    private static OfferFactory instance = null;
+
+    public static OfferFactory getInstance() {
+        if (instance == null) {
+            instance = new OfferFactory();
+        }
+        return instance;
+    }
 
     @Override
     public Offer createOffer(EOffer eOffer) {
@@ -22,5 +30,6 @@ public class OfferFactory implements IOfferFactory {
         }
     }
 }
+
 
 

@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 import befaster.solutions.CHK.befaster.solutions.utility.support.IFactory;
+import befaster.solutions.CHK.befaster.solutions.utility.support.Product;
 import befaster.solutions.CHK.befaster.solutions.utility.support.ProductFactory;
 
 import java.util.ArrayList;
@@ -57,11 +58,17 @@ public class CheckoutSolution {
         }
 
         for(String p : products){
-            ProductFactory.getInstance().createProduct(p);
+            Product product = ProductFactory.getInstance().createProduct(IFactory.EProduct.valueOf(p));
+
+            sum(product.getPrice());
         }
+
+        // offers by frecuency
+
         return 0;
     }
 }
+
 
 
 
