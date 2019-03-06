@@ -1,5 +1,7 @@
 package befaster.solutions.CHK.befaster.solutions.utility.support;
 
+import java.util.List;
+
 public interface IOfferFactory {
 
     public enum EOffer {
@@ -17,6 +19,7 @@ public interface IOfferFactory {
         }
     }
 
-    Offer createOffer(IFactory.EProduct eProduct);
+    List<Offer> createOffer(IFactory.EProduct eProduct);
 
 }
+
