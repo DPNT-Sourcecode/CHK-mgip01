@@ -6,7 +6,6 @@ public interface IFactory {
         B("B"),
         C("C"),
         D("D"),
-        C("C"),
         E("E");
 
         private String ref;
@@ -19,6 +18,7 @@ public interface IFactory {
         }
     }
 
-    
+    Product createProduct(product p);
 }
+
 
