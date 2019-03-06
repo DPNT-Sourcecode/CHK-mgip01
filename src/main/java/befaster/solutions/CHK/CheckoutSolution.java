@@ -21,10 +21,11 @@ enum item {
     B("B", 30, true, false, false), // 2B for 45
     C("C", 20, false, false, false),
     D("D", 15, false, false, false),
-    E("E", 40, false, true, false); // 2E get one B
-    /*
+    E("E", 40, false, true, false), // 2E get one B
+
     // free
-    F("F", 10, false, true, false), // 2F get one F free
+    F("F", 10, false, true, false); // 2F get one F free
+    /*
     G("G", 20, false, false, false), H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
     I("I", 35, false, false, false), J("J", 60, false, false, false), K("K", 70, true, false, false), // | 2K for 150 |
     L("L", 90, false, false, false), M("M", 15, false, false, false), N("N", 40, false, true, false), // | 3N get one M
@@ -119,10 +120,11 @@ enum item {
         ArrayList<specialOffer> specialOffers = new ArrayList<specialOffer>();
         if (this.equals(E)) {
             specialOffers.add(specialOffer.E);
-        }
-        /*
+
         } else if (this.equals(F)) {
             specialOffers.add(specialOffer.F);
+        }
+            /*
         } else if (this.equals(N)) {
             specialOffers.add(specialOffer.N);
         } else if (this.equals(R)) {
@@ -185,9 +187,11 @@ enum offer {
 // specialOffer linked to item
 enum specialOffer {
     // numItems, free item object
-    E(2, item.B);
+    E(2, item.B),
+
+    F(2, item.F);
     /*
-    F(2, item.F), N(3, item.M), R(3, item.Q), U(3, item.U);
+    N(3, item.M), R(3, item.Q), U(3, item.U);
      */
 
     private int numItems;
@@ -376,6 +380,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
