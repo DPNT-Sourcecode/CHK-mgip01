@@ -26,20 +26,27 @@ enum item {
     // free
     F("F", 10, false, true, false), // 2F get one F free
 
-    G("G", 20, false, false, false), H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
-    I("I", 35, false, false, false), J("J", 60, false, false, false), K("K", 70, true, false, false), // | 2K for 150 |
-    L("L", 90, false, false, false), M("M", 15, false, false, false), N("N", 40, false, true, false), // | 3N get one M
+    G("G", 20, false, false, false),
+    H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
+    I("I", 35, false, false, false),
+    J("J", 60, false, false, false),
+    K("K", 80, true, false, false), // | 2K for 150 |
+    L("L", 90, false, false, false),
+    M("M", 15, false, false, false),
+    N("N", 40, false, true, false), // | 3N get one M
     // free |
-    O("O", 10, false, false, false), P("P", 50, true, false, false), // | 5P for 200 |
+    O("O", 10, false, false, false),
+    P("P", 50, true, false, false), // | 5P for 200 |
     Q("Q", 30, true, false, false), // | 3Q for 80 |
     R("R", 50, false, true, false), // | 3R get one Q free |
-    S("S", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
-    T("T", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
+    S("S", 30, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
+    T("T", 20, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
     U("U", 40, false, true, false), // | 3U get one U free |
     V("V", 50, true, false, false), // | 2V for 90, 3V for 130 |
-    W("W", 20, false, false, false), X("X", 17, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
-    Y("Y", 20, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
-    Z("Z", 21, false, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+    W("W", 20, false, false, false),
+    X("X", 90, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+    Y("Y", 10, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
+    Z("Z", 50, false, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
 
     private String itemRef;
     private int price;
@@ -380,4 +387,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
