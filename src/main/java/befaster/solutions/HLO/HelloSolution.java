@@ -10,4 +10,3 @@ public class HelloSolution {
         //throw new SolutionNotImplementedException();
     }
 }
-
