@@ -13,7 +13,7 @@ public class CheckoutSolution {
 
     private Integer totalPrice;
 
-    CheckoutSolution(){
+    public CheckoutSolution(){
         totalPrice = 0;
     }
 
@@ -75,3 +75,4 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 }
+
