@@ -1,10 +1,10 @@
 package befaster.solutions.CHK.befaster.solutions.utility.support;
 
-public class ProductFactory implements IFactory{
+public class ProductFactory implements IFactory {
     @Override
     public Product createProduct(EProduct eProduct) {
 
-        switch (eProduct){
+        switch (eProduct) {
             case A:
                 return new Product(eProduct, 50);
             case B:
@@ -15,8 +15,9 @@ public class ProductFactory implements IFactory{
                 return new Product(eProduct, 15);
             case E:
                 return new Product(eProduct, 40);
-                default:
-                    return null;
+            default:
+                return null;
         }
     }
 }
+

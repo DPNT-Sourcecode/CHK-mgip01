@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
+import befaster.solutions.CHK.befaster.solutions.utility.support.IFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,13 +47,16 @@ public class CheckoutSolution {
         List<String> cloneProducts = products.stream().collect(Collectors.toList());
 
         // remove all legal products, if the size of list is greater than 0, exist illegal reference of products
-        for(String ref : references) {
-            cloneProducts.removeIf(p -> p.equals(ref));
+        for(IFactory.EProduct product : IFactory.EProduct.values()) {
+            cloneProducts.removeIf(p -> p.equals(product.getRef()));
         }
 
         if(cloneProducts.size()>0){
             return -1;
         }
 
+        
+        return 0;
     }
 }
+
