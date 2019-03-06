@@ -1,11 +1,6 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-import befaster.solutions.CHK.befaster.solutions.utility.support.*;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -16,7 +11,7 @@ import java.util.stream.Stream;
 
 // item representation
 enum item {
-    // itemRef, price, haveOffer, haveSpecialOffer, haveCombOffer
+    // itemRef, price, haveOffer, haveFreeItemOffer, haveCombOffer
     A("A", 50, true, false, false), // 3A for 130, 5A for 200
     B("B", 30, true, false, false), // 2B for 45
     C("C", 20, false, false, false),
@@ -30,7 +25,7 @@ enum item {
     H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
     I("I", 35, false, false, false),
     J("J", 60, false, false, false),
-    K("K", 70, true, false, false), // | 2K for 150 |
+    K("K", 70, true, false, false), // | 2K for 120 |
     L("L", 90, false, false, false),
     M("M", 15, false, false, false),
     N("N", 40, false, true, false), // | 3N get one M
@@ -51,16 +46,16 @@ enum item {
     private String itemRef;
     private int price;
     private boolean haveOffer;
-    private boolean haveSpecialOffer;
+    private boolean haveFreeItemOffer;
     private boolean haveCombOffer;
 
     // contructor
-    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveSpecialOffer,
+    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveFreeItemOffer,
          final boolean haveCombOffer) {
         this.itemRef = itemRef;
         this.price = price;
         this.haveOffer = haveOffer;
-        this.haveSpecialOffer = haveSpecialOffer;
+        this.haveFreeItemOffer = haveFreeItemOffer;
         this.haveCombOffer = haveCombOffer;
     }
 
@@ -76,8 +71,8 @@ enum item {
         return haveOffer;
     }
 
-    public boolean isHaveSpecialOffer() {
-        return haveSpecialOffer;
+    public boolean isHaveFreeItemOffer() {
+        return haveFreeItemOffer;
     }
 
     public boolean isHaveCombOffer() {
@@ -123,22 +118,22 @@ enum item {
 
     // get specialOffers by item
 
-    public ArrayList<specialOffer> getSpecialOffers() {
-        ArrayList<specialOffer> specialOffers = new ArrayList<specialOffer>();
+    public ArrayList<freeItemOffer> getSpecialOffers() {
+        ArrayList<freeItemOffer> freeItemOffers = new ArrayList<freeItemOffer>();
         if (this.equals(E)) {
-            specialOffers.add(specialOffer.E);
+            freeItemOffers.add(freeItemOffer.E);
 
         } else if (this.equals(F)) {
-            specialOffers.add(specialOffer.F);
+            freeItemOffers.add(freeItemOffer.F);
 
         } else if (this.equals(N)) {
-            specialOffers.add(specialOffer.N);
+            freeItemOffers.add(freeItemOffer.N);
         } else if (this.equals(R)) {
-            specialOffers.add(specialOffer.R);
+            freeItemOffers.add(freeItemOffer.R);
         } else if (this.equals(U)) {
-            specialOffers.add(specialOffer.U);
+            freeItemOffers.add(freeItemOffer.U);
         }
-        return specialOffers;
+        return freeItemOffers;
     }
 
     // get combination offers
@@ -189,8 +184,8 @@ enum offer {
     }
 }
 
-// specialOffer linked to item
-enum specialOffer {
+// freeItemOffer linked to item
+enum freeItemOffer {
     // numItems, free item object
     E(2, item.B),
 
@@ -203,7 +198,7 @@ enum specialOffer {
     private item freeItem;
 
     // constructor
-    specialOffer(final int numItems, final item freeItem) {
+    freeItemOffer(final int numItems, final item freeItem) {
         this.numItems = numItems;
         this.freeItem = freeItem;
     }
@@ -290,9 +285,9 @@ public class CheckoutSolution {
         }
 
         for (item i : item.values()) {
-            if (i.isHaveSpecialOffer()) {
+            if (i.isHaveFreeItemOffer()) {
                 // calculate price by item/product and get the remain items in the collection
-                products = processSpecialOffer(products, i);
+                products = processFreeItemOffer(products, i);
             }
         }
 
@@ -304,7 +299,7 @@ public class CheckoutSolution {
         }
 
         for (item i : item.values()) {
-            if (!i.isHaveSpecialOffer() && !i.isHaveOffer() && !i.isHaveCombOffer()) {
+            if (!i.isHaveFreeItemOffer() && !i.isHaveOffer() && !i.isHaveCombOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 products = processItems(products, i);
             }
@@ -314,7 +309,7 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
-    private List<String> processSpecialOffer(List<String> items, final item product) {
+    private List<String> processFreeItemOffer(List<String> items, final item product) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
 
         // if the list not empty process the product, if the list is empty the total
@@ -385,4 +380,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
