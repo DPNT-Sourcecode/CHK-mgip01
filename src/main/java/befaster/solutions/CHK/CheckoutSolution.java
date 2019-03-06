@@ -55,8 +55,11 @@ public class CheckoutSolution {
             return -1;
         }
 
-        
+        for(String p : products){
+
+        }
         return 0;
     }
 }
+
 

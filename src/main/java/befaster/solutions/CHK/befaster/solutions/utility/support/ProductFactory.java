@@ -1,6 +1,8 @@
 package befaster.solutions.CHK.befaster.solutions.utility.support;
 
 public class ProductFactory implements IFactory {
+
+    
     @Override
     public Product createProduct(EProduct eProduct) {
 
@@ -20,4 +22,5 @@ public class ProductFactory implements IFactory {
         }
     }
 }
+
 
