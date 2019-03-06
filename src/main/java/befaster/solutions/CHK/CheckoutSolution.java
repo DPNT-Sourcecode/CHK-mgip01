@@ -114,11 +114,13 @@ enum item {
     }
 
     // get specialOffers by item
-    /*
+
     public ArrayList<specialOffer> getSpecialOffers() {
         ArrayList<specialOffer> specialOffers = new ArrayList<specialOffer>();
         if (this.equals(E)) {
             specialOffers.add(specialOffer.E);
+        }
+        /*
         } else if (this.equals(F)) {
             specialOffers.add(specialOffer.F);
         } else if (this.equals(N)) {
@@ -128,10 +130,10 @@ enum item {
         } else if (this.equals(U)) {
             specialOffers.add(specialOffer.U);
         }
-
+        */
         return specialOffers;
     }
-    */
+
     // get combination offers
     /*
     public ArrayList<combinationOffer> getCombinationOffers() {
@@ -279,6 +281,13 @@ public class CheckoutSolution {
         }
 
         for (item i : item.values()) {
+            if (i.isHaveSpecialOffer()) {
+                // calculate price by item/product and get the remain items in the collection
+                products = processSpecialOffer(products, i);
+            }
+        }
+
+        for (item i : item.values()) {
             if (i.isHaveOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 products = processOffer(products, i);
@@ -296,6 +305,43 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
+    private List<String> processSpecialOffer(List<String> items, final item product) {
+        List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
+
+        // if the list not empty process the product, if the list is empty the total
+        // price of item/product will be zero
+        // and then will not be necessary add the product price to the total price of
+        // basket
+        if (!collect.isEmpty()) {
+            product.getSpecialOffers().forEach(so -> {
+                if (so.getFreeItem().getItemRef().equals(product.getItemRef())) {
+                    // calculate packs
+                    List<String> remainItems = collect.subList(0, collect.size());
+                    while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
+                        if (remainItems.size() > so.getNumItems()) {
+                            // sublist of items remain, remove 3 (2 pack and 1 free)
+                            remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems() + 1));
+                        } else {
+                            break;
+                        }
+                        // add price of two items of pack to total price until finish the loop
+                        sum(so.getNumItems() * product.getPrice());
+                    }
+                    // remain items out pack
+                    sum(remainItems.size() * product.getPrice());
+                } else {
+                    for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
+                        items.remove(so.getFreeItem().getItemRef());
+                    }
+                    // because the product passed don't have a pack offer
+                    // will be calculate de price by normal way after remove the free items
+                    sum(items.stream().filter(i -> i.equals(product.getItemRef()))
+                            .collect(Collectors.toList()).size() * product.getPrice());
+                }
+            });
+        }
+        return items;
+    }
     private List<String> processOffer(List<String> items, final item product) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
 
@@ -330,5 +376,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
