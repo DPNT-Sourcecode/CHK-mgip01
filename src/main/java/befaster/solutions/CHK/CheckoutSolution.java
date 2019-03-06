@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -137,7 +138,7 @@ enum item {
     }
 
     // get combination offers
-    /*
+
     public ArrayList<combinationOffer> getCombinationOffers() {
         ArrayList<combinationOffer> combOffers = new ArrayList<combinationOffer>();
         if (this.equals(S)) {
@@ -153,7 +154,7 @@ enum item {
         }
         return combOffers;
     }
-    */
+    
 }
 
 // offer linked to item
@@ -212,7 +213,7 @@ enum freeItemOffer {
     }
 }
 
-/*
+
 enum combinationOffer {
     S(3,45, Arrays.asList(item.T, item.X, item.Y, item.Z)), T(3,45, Arrays.asList(item.S, item.X, item.Y, item.Z)),
     X(3,45, Arrays.asList(item.T, item.S, item.Y, item.Z)), Y(3,45, Arrays.asList(item.T, item.X, item.S, item.Z)),
@@ -237,7 +238,7 @@ enum combinationOffer {
         return itemsRefList;
     }
 }
-*/
+
 public class CheckoutSolution {
 
     private Integer totalPrice;
@@ -314,6 +315,11 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
+    private List<String> processCombinationOffer(List<String> items, final item product) {
+        List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
+
+        return items;
+    }
     private List<String> processFreeItemOffer(List<String> items, final item product) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
 
@@ -385,6 +391,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
