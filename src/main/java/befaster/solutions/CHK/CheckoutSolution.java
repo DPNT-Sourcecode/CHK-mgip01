@@ -63,7 +63,7 @@ public class CheckoutSolution {
             if(offer!=null && offer.getFreeEproducts().size()==0){
                 if(Collections.frequency(products, p) / offer.getNumItems() > 0){
                     sum((productList.size() / offer.getNumItems()) * offer.getPrice());
-                    sum((productList.size() % offer.getNumItems()) * offer.getPrice());
+                    sum((productList.size() % offer.getNumItems()) * product.getPrice());
                     break;
                 }
             }else {
@@ -76,5 +76,6 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 }
+
 
 
