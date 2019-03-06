@@ -348,8 +348,6 @@ public class CheckoutSolution {
                             .collect(Collectors.toList()).size() * product.getPrice());
                 }
             });
-        } else {
-            sum(product.getPrice());
         }
         return items;
     }
@@ -370,8 +368,6 @@ public class CheckoutSolution {
 
             // sum the price of local remain items by product
             sum(remainItems * product.getPrice());
-        } else {
-            sum(product.getPrice());
         }
         return items;
     }
@@ -389,4 +385,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
