@@ -2,7 +2,15 @@ package befaster.solutions.CHK.befaster.solutions.utility.support;
 
 public class ProductFactory implements IFactory {
 
-    
+    private static ProductFactory instance = null;
+
+    public static ProductFactory getInstance() {
+        if(instance ==  null){
+            instance = new ProductFactory();
+        }
+        return instance;
+    }
+
     @Override
     public Product createProduct(EProduct eProduct) {
 
@@ -22,5 +30,6 @@ public class ProductFactory implements IFactory {
         }
     }
 }
+
 
 
