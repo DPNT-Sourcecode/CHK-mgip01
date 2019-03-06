@@ -296,7 +296,7 @@ public class CheckoutSolution {
 
         for(item i : item.values()){
             if(i.isHaveCombOffer()){
-                products = processCombinationOffer(products, i);
+                products = processCombinationOffer(products, i, i.getListCombinationItems());
             }
         }
         for (item i : item.values()) {
@@ -324,9 +324,15 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
-    private List<String> processCombinationOffer(List<String> items, final item product) {
+    private List<String> processCombinationOffer(List<String> items, final item product, List<String> combinationItems) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
 
+        // remove from combination list the root item
+        combinationItems.removeIf(p -> p.equals(product.getItemRef()));
+
+        for(String c : combinationItems){
+
+        }
         return items;
     }
     private List<String> processFreeItemOffer(List<String> items, final item product) {
@@ -400,3 +406,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
