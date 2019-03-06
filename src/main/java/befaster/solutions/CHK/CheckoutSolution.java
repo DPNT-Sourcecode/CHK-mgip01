@@ -24,8 +24,8 @@ enum item {
     E("E", 40, false, true, false), // 2E get one B
 
     // free
-    F("F", 10, false, true, false); // 2F get one F free
-    /*
+    F("F", 10, false, true, false), // 2F get one F free
+
     G("G", 20, false, false, false), H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
     I("I", 35, false, false, false), J("J", 60, false, false, false), K("K", 70, true, false, false), // | 2K for 150 |
     L("L", 90, false, false, false), M("M", 15, false, false, false), N("N", 40, false, true, false), // | 3N get one M
@@ -38,9 +38,9 @@ enum item {
     U("U", 40, false, true, false), // | 3U get one U free |
     V("V", 50, true, false, false), // | 2V for 90, 3V for 130 |
     W("W", 20, false, false, false), X("X", 17, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
-    Y("Y", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
-    Z("Z", 21, false, false, true); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
-    */
+    Y("Y", 20, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
+    Z("Z", 21, false, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+
     private String itemRef;
     private int price;
     private boolean haveOffer;
@@ -380,3 +380,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
