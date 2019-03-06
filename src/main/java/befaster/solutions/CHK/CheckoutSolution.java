@@ -92,8 +92,6 @@ enum item {
             offers.add(offer.A2);
         } else if (this.equals(B)) {
             offers.add(offer.B);
-        }
-            /*
         } else if (this.equals(H)) {
             offers.add(offer.H1);
             offers.add(offer.H2);
@@ -106,6 +104,8 @@ enum item {
         } else if (this.equals(V)) {
             offers.add(offer.V1);
             offers.add(offer.V2);
+        }
+        /*
         } else if (this.equals(S)) {
             offers.add(offer.S);
         } else if (this.equals(T)) {
@@ -131,7 +131,6 @@ enum item {
         } else if (this.equals(F)) {
             specialOffers.add(specialOffer.F);
         }
-            /*
         } else if (this.equals(N)) {
             specialOffers.add(specialOffer.N);
         } else if (this.equals(R)) {
@@ -139,7 +138,6 @@ enum item {
         } else if (this.equals(U)) {
             specialOffers.add(specialOffer.U);
         }
-        */
         return specialOffers;
     }
 
@@ -387,5 +385,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
