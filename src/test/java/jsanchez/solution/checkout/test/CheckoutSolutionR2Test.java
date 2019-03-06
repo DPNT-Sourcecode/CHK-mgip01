@@ -19,7 +19,7 @@ public class CheckoutSolutionR2Test {
     @Test
     public void simpleTest(){
         // item A
-        assertThat(checkout.checkout("AAAAA"), equalTo(230));
+        assertThat(checkout.checkout("AAAAA"), equalTo(200));
         assertThat(checkout.checkout("AAA"), equalTo(130));
         assertThat(checkout.checkout("AAAAAA"), equalTo(260));
         assertThat(checkout.checkout("AAAAAAAA"), equalTo(360));
@@ -41,3 +41,4 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("ABEE"),equalTo(130));
     }
 }
+

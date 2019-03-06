@@ -84,6 +84,7 @@ enum item {
             offers.add(offer.A2);
         } else if (this.equals(B)) {
             offers.add(offer.B);
+        }
             /*
         } else if (this.equals(H)) {
             offers.add(offer.H1);
@@ -329,4 +330,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
