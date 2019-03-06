@@ -26,14 +26,17 @@ public class OfferFactory implements IOfferFactory {
                 offerList.sort(Comparator.comparing(Offer::getNumItems));
                 return offerList;
             case B:
-                return new Offer(2, 45, freeEproducts);
+                offerList.add(new Offer(2, 45, freeEproducts));
+                return offerList;
             case E:
                 freeEproducts.add(IFactory.EProduct.B);
-                return new Offer(2, 0, freeEproducts);
+                offerList.add(new Offer(2, 0, freeEproducts));
+                return offerList;
             default:
                 return null;
         }
     }
 }
+
 
 
