@@ -58,7 +58,13 @@ public class CheckoutSolution {
         for(String p : products){
             Product product = ProductFactory.getInstance().createProduct(IFactory.EProduct.valueOf(p));
             Offer offer = OfferFactory.getInstance().createOffer(IFactory.EProduct.valueOf(p));
-            sum(product.getPrice());
+            if(offer!=null){
+                if(Collections.frequency(products, p) / offer.getNumItems() > 0){
+                    sum();
+                }
+            }else {
+                sum(product.getPrice());
+            }
         }
 
         // offers by frecuency
@@ -66,6 +72,7 @@ public class CheckoutSolution {
         return 0;
     }
 }
+
 
 
 
