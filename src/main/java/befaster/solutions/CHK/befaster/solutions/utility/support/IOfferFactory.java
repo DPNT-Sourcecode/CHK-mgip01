@@ -1,15 +1,14 @@
 package befaster.solutions.CHK.befaster.solutions.utility.support;
 
-public interface IFactory {
-    public enum EProduct {
+public interface IOfferFactory {
+
+    public enum EOffer {
         A("A"),
         B("B"),
-        C("C"),
-        D("D"),
         E("E");
 
         private String ref;
-        EProduct(final String ref){
+        EOffer(final String ref){
             this.ref = ref;
         }
 
@@ -18,9 +17,6 @@ public interface IFactory {
         }
     }
 
-    Product createProduct(EProduct EProductRef);
+
+
 }
-
-
-
-

@@ -2,21 +2,22 @@ package befaster.solutions.CHK.befaster.solutions.utility.support;
 
 public class Product {
 
-    private IFactory.product productRef;
+    private IFactory.EProduct eProduct;
     private Integer price;
 
-    public Product(IFactory.product productRef, Integer price) {
-        this.productRef = productRef;
+    public Product(IFactory.EProduct eProduct, Integer price) {
+        this.eProduct = eProduct;
         this.price = price;
     }
 
-    public IFactory.product getProductRef() {
-        return productRef;
+    public IFactory.EProduct geteProduct() {
+        return eProduct;
     }
 
     public Integer getPrice() {
         return price;
     }
 }
+
 
 
