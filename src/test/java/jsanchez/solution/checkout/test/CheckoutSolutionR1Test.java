@@ -18,10 +18,21 @@ public class CheckoutSolutionR1Test {
 
     @Test
     public void simpleTest(){
+        // item A
         assertThat(checkout.checkout("AAA"), equalTo(130));
         assertThat(checkout.checkout("AAAAAA"), equalTo(230));
         assertThat(checkout.checkout("AAAAA"), equalTo(230));
-
+        // item B
+        assertThat(checkout.checkout("BB"), equalTo(45));
+        assertThat(checkout.checkout("BBBB"), equalTo(90));
+        assertThat(checkout.checkout("BBB"), equalTo(75));
+        // item C
+        assertThat(checkout.checkout("CC"), equalTo(40));
+        assertThat(checkout.checkout("CCC"), equalTo(60));
+        // item D
+        assertThat(checkout.checkout("DD"), equalTo(30));
+        assertThat(checkout.checkout("DDDD"),equalTo(60));
     }
 }
+
 
