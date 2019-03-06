@@ -18,10 +18,16 @@ public class CheckoutSolution {
         // have items, creation of list
         List<String> products = Stream.of(skus.split("")).collect(Collectors.toList());
 
+        // validation
+        List<String> cloneProducts = products.stream().collect(Collectors.toList());
+
+        // remove all legal products, if the size of list is greater than 0, exist illegal reference of products
+        cloneProducts.removeIf(product -> product.equals(""))
 
         return 0;
         //throw new SolutionNotImplementedException();
     }
 }
+
 
 
