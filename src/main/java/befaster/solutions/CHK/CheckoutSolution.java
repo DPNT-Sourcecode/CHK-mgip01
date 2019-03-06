@@ -329,12 +329,19 @@ public class CheckoutSolution {
 
         // remove from combination list the root item
         combinationItems.removeIf(p -> p.equals(product.getItemRef()));
-
+        List<String> foundIt = new ArrayList<String>();
         if(!collect.isEmpty()) {
             int count = 0;
             for (String c : combinationItems) {
-                if (items.equals(c)) {
-                    count ++;
+                for(String i : items) {
+                    if (i.equals(c)) {
+                        foundIt.add(c);
+                        count++;
+                        if (count == 3) {
+                            sum(45);
+                            count = 0;
+                        }
+                    }
                 }
             }
         }
@@ -411,5 +418,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
