@@ -17,8 +17,8 @@ public class CheckoutSolutionR4Test {
 
     @Test
     public void isolateTest(){
-        //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(875));
-        assertThat(checkout.checkout("AAAAA"), equalTo(200));
+        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(965));
+        assertThat(checkout.checkout("X"), equalTo(90));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class CheckoutSolutionR4Test {
         assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
         assertThat(checkout.checkout("P"), equalTo(50));
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
-        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(875));
+        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(965));
         assertThat(checkout.checkout("P"), equalTo(50));
         assertThat(checkout.checkout("SSS"), equalTo(90));
         //assertThat(checkout.checkout("STX"), equalTo(45));
@@ -89,6 +89,7 @@ public class CheckoutSolutionR4Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
 
 

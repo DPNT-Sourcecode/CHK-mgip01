@@ -44,7 +44,7 @@ enum item {
     U("U", 40, false, true, false), // | 3U get one U free |
     V("V", 50, true, false, false), // | 2V for 90, 3V for 130 |
     W("W", 20, false, false, false),
-    X("X", 90, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+    X("X", 90, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
     Y("Y", 10, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
     Z("Z", 50, false, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
 
@@ -385,6 +385,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
