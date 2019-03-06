@@ -35,14 +35,14 @@ enum item {
     P("P", 50, true, false, false), // | 5P for 200 |
     Q("Q", 30, true, false, false), // | 3Q for 80 |
     R("R", 50, false, true, false), // | 3R get one Q free |
-    S("S", 20, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
-    T("T", 20, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
+    S("S", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
+    T("T", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
     U("U", 40, false, true, false), // | 3U get one U free |
     V("V", 50, true, false, false), // | 2V for 90, 3V for 130 |
     W("W", 20, false, false, false),
-    X("X", 17, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
-    Y("Y", 20, false, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
-    Z("Z", 21, false, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+    X("X", 17, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+    Y("Y", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
+    Z("Z", 21, false, false, true); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
 
     private String itemRef;
     private int price;
@@ -314,7 +314,7 @@ public class CheckoutSolution {
         }
 
         for (item i : item.values()) {
-            if (!i.isHaveFreeItemOffer() && !i.isHaveOffer() && !i.isHaveCombOffer()) {
+            if (!i.isHaveFreeItemOffer() && !i.isHaveOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 products = processItems(products, i);
             }
@@ -339,14 +339,19 @@ public class CheckoutSolution {
                         count++;
                         if (count == 3) {
                             sum(45);
+                            foundIt.add(product.getItemRef());
                             count = 0;
                         }
                     }
                 }
             }
+            if(!foundIt.isEmpty()){
+                items.removeAll(foundIt);
+            }
         }
         return items;
     }
+
     private List<String> processFreeItemOffer(List<String> items, final item product) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
 
@@ -418,6 +423,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
