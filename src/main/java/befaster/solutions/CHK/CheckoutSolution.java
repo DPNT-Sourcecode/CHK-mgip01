@@ -9,7 +9,29 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CheckoutSolution {
+
+    private Integer totalPrice;
+
+    CheckoutSolution(){
+        totalPrice = 0;
+    }
+
+    private void sum(Integer price){
+        totalPrice = totalPrice + price;
+    }
+
+    private Integer getTotalPrice(){
+        return totalPrice;
+    }
+
+    private void resetPrice(){
+        totalPrice = 0;
+    }
+
     public Integer checkout(String skus) {
+
+        resetPrice();
+
         // skus control, null is a illegal input
         if (skus == null){
             return -1;
@@ -31,7 +53,8 @@ public class CheckoutSolution {
         if(cloneProducts.size()>0){
             return -1;
         }
-        
+
     }
 }
+
 
