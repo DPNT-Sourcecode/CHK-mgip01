@@ -4,6 +4,9 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class HelloSolution {
     public String hello(String friendName) {
-        throw new SolutionNotImplementedException();
+        StringBuffer sb = new StringBuffer("Hello, ").append(friendName).append("!");
+        return sb.toString();
+        //throw new SolutionNotImplementedException();
     }
 }
+

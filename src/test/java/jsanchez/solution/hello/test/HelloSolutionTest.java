@@ -4,6 +4,9 @@ import befaster.solutions.HLO.HelloSolution;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
 public class HelloSolutionTest {
 
     private HelloSolution hello;
@@ -15,6 +18,7 @@ public class HelloSolutionTest {
 
     @Test
     public void helloTest(){
-        assert
+        assertThat(hello.hello("Jordi"), equalTo("Hello, Jordi!"));
     }
 }
+
