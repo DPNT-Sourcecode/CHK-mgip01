@@ -71,7 +71,7 @@ public class CheckoutSolution {
                      }else if(offer.getFreeEproducts().size()>0){
 
                      }else{
-                         
+
                      }
                 }
             } else {
@@ -84,6 +84,7 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 }
+
 
 
 
