@@ -330,8 +330,13 @@ public class CheckoutSolution {
         // remove from combination list the root item
         combinationItems.removeIf(p -> p.equals(product.getItemRef()));
 
-        for(String c : combinationItems){
-
+        if(!collect.isEmpty()) {
+            int count = 0;
+            for (String c : combinationItems) {
+                if (items.equals(c)) {
+                    count ++;
+                }
+            }
         }
         return items;
     }
@@ -406,4 +411,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
