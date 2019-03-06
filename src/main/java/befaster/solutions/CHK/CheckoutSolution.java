@@ -3,6 +3,7 @@ package befaster.solutions.CHK;
 import befaster.runner.SolutionNotImplementedException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -37,8 +38,17 @@ public class CheckoutSolution {
             return -1;
         }
 
-        
-        return 0;
+        // calculation of prices
+        Integer priceProductA = ((Collections.frequency(products, "A") / 3)*130) + ((Collections.frequency(products, "A") % 3)*50);
+
+        Integer priceProductB = ((Collections.frequency(products, "B") / 2)*45) + ((Collections.frequency(products, "B") % 2)*30);
+
+        Integer priceProductC = Collections.frequency(products, "C")*20;
+
+        Integer priceProductD = Collections.frequency(products, "D")*15;
+
+        return priceProductA + priceProductB + priceProductC + priceProductD;
         //throw new SolutionNotImplementedException();
     }
 }
+
