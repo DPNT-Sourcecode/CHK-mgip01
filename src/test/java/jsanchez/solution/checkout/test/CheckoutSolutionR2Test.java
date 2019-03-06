@@ -21,8 +21,8 @@ public class CheckoutSolutionR2Test {
         // item A
         assertThat(checkout.checkout("AAAAA"), equalTo(200));
         assertThat(checkout.checkout("AAA"), equalTo(130));
-        assertThat(checkout.checkout("AAAAAA"), equalTo(260));
-        assertThat(checkout.checkout("AAAAAAAA"), equalTo(360));
+        assertThat(checkout.checkout("AAAAAA"), equalTo(250));
+        assertThat(checkout.checkout("AAAAAAAA"), equalTo(330));
         // item B
         assertThat(checkout.checkout("BBB"), equalTo(75));
         assertThat(checkout.checkout("BBBB"), equalTo(90));
@@ -40,5 +40,21 @@ public class CheckoutSolutionR2Test {
     public void freeTest(){
         assertThat(checkout.checkout("ABEE"),equalTo(130));
     }
+
+    @Test
+    public void simpleCombinationItemsTest() {
+        assertThat(checkout.checkout("ABCDE"), equalTo(155));
+    }
+
+    @Test
+    public void combinationItemsTest() {
+        assertThat(checkout.checkout("ABAAEACDAABAAEA"), equalTo(525));
+    }
+
+    @Test
+    public void simpleCombinationSpecialOfferBFreeTest() {
+        assertThat(checkout.checkout("BBEE"), equalTo(110));
+    }
 }
+
 
