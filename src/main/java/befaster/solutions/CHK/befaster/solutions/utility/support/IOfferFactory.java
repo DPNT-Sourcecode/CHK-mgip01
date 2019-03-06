@@ -20,4 +20,3 @@ public interface IOfferFactory {
     Offer createOffer(IFactory.EProduct eProduct);
 
 }
-

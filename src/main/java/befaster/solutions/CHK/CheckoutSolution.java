@@ -62,7 +62,8 @@ public class CheckoutSolution {
             List<String> productList = products.stream().filter(prd -> prd.equals(p)).collect(Collectors.toList());
             if(offer!=null){
                 if(Collections.frequency(products, p) / offer.getNumItems() > 0){
-                    sum();
+                    sum((productList.size() / offer.getNumItems()) * offer.getPrice());
+                    sum((productList.size() % offer.getNumItems()) * offer.getPrice());
                 }
             }else {
                 sum(product.getPrice());
@@ -71,13 +72,6 @@ public class CheckoutSolution {
 
         // offers by frecuency
 
-        return 0;
+        return getTotalPrice();
     }
 }
-
-
-
-
-
-
-
