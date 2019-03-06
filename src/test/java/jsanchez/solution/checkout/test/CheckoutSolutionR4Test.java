@@ -89,7 +89,3 @@ public class CheckoutSolutionR4Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
-
-
-
-
