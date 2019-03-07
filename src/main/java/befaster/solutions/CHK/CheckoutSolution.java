@@ -63,7 +63,14 @@ public class CheckoutSolution {
         for (ProductsDB.item i : ProductsDB.item.values()) {
             if (i.isHaveCombOffer() && products.contains(i.getItemRef())) {
                 //products = processCombinationOffer(products, i, i.getListCombinationItems());
-                if(products.size()>=3) {
+                // check if the products contains the elements for this offer
+                int countPack = 0;
+                for(String s : i.getListCombinationItems()){
+                    if(products.contains(s)){
+                        countPack ++;
+                    }
+                }
+                if(products.size()>=3 && countPack>=3) {
                     List<List<String>> permComb = GDOPermutation.getInstance().process(products, i, i.getListCombinationItems());
                     // get unique combination
                     List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
@@ -283,3 +290,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
