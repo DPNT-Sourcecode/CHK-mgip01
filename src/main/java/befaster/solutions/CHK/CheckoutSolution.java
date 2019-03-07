@@ -69,7 +69,50 @@ public class CheckoutSolution {
                     List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
                     // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
                     // unique list, index, previousPrice
-                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0,uniqueComb.get(uniqueComb.size() - 1));
+                    //List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0,uniqueComb.get(uniqueComb.size() - 1));
+                    Integer total = 0;
+                    Integer previousPrice = 0;
+                    List<String> bestComb = uniqueComb.get(uniqueComb.size() -1);
+                    for(List<String> it : uniqueComb){
+                        total = 0;
+                        for(String s : it){
+                            total = total + ProductsDB.item.valueOf(s).getPrice();
+                        }
+
+                        if (total >= previousPrice) {
+                            bestComb = it;
+                            previousPrice = total;
+                        }
+                    }
+                    /*
+                    Integer total = previousPrice;
+                    List<String> bComb = prevBComb;
+
+                    if (index >= 0) {
+                        total = 0;
+
+                        for (String s : uniqueComb.get(index)) {
+                            total = total + ProductsDB.item.valueOf(s).getPrice();
+                        }
+
+                        if (total >= previousPrice) {
+                            bComb = uniqueComb.get(index);
+                            previousPrice = total;
+
+                        }
+
+                        if((index -1) >=0 ) {
+                            // stackOverFlowError!!! recursion problem!
+                            bComb = getBestComb(uniqueComb, index - 1, previousPrice, bComb);
+                            //total = calculatePrice(uniqueComb, index, previousPrice);
+                        }else{
+                            return bComb;
+                        }
+                    }
+                    */
+
+
+
                     //bestComb.forEach(System.out::println);
                     if (!bestComb.isEmpty()) {
                         sum(45);
@@ -240,4 +283,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
