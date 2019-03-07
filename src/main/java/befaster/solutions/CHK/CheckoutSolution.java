@@ -329,7 +329,7 @@ public class CheckoutSolution {
         // must be order the items by price first to always favor the customer when applying special offers
 
         // remove from combination list the root item
-        combinationItems.removeIf(p -> p.equals(product.getItemRef()));
+        //combinationItems.removeIf(p -> p.equals(product.getItemRef()));
         List<String> foundIt = new ArrayList<String>();
         List<Integer> foundIndex = new ArrayList<Integer>();
         if(!collect.isEmpty()) {
@@ -427,6 +427,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
