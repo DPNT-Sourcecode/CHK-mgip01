@@ -124,6 +124,7 @@ public class CheckoutSolution {
             }
 
             if((index -1) >=0 ) {
+                // stackOverFlowError!!! recursion problem!
                 bComb = getBestComb(uniqueComb, index - 1, previousPrice, bComb);
                 //total = calculatePrice(uniqueComb, index, previousPrice);
             }else{
@@ -239,3 +240,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
