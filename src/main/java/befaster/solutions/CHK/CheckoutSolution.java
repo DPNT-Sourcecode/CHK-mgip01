@@ -173,7 +173,7 @@ enum offer {
     // will be necessary manage the groups in descendent order by numItems
     // numItems, price
     A1(5, 200), A2(3, 130), B(2, 45),
-    H1(10, 80), H2(5, 45), K(2, 150), P(5, 200), Q(3, 80), V1(3, 130), V2(2, 90);
+    H1(10, 80), H2(5, 45), K(2, 120), P(5, 200), Q(3, 80), V1(3, 130), V2(2, 90);
     /*
     S(3, 45), T(3, 45), X(3, 45), Y(3, 45), Z(3, 45);
     */
@@ -428,6 +428,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 

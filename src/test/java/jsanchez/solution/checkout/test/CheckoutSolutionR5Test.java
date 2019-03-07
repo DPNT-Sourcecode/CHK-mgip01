@@ -32,6 +32,9 @@ public class CheckoutSolutionR5Test {
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
         //assertThat(checkout.checkout("X"), equalTo(17));
         //assertThat(checkout.checkout("YZTSYX"), equalTo(90));
+        assertThat(checkout.checkout("KK"), equalTo(190));
+        assertThat(checkout.checkout("KKKK"), equalTo(240));
+        assertThat(checkout.checkout("KKK"), equalTo(120));
     }
 
     @Test
@@ -39,7 +42,9 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
         assertThat(checkout.checkout("RRRQQ"), equalTo(180));
         assertThat(checkout.checkout("UUUU"), equalTo(120));
-        assertThat(checkout.checkout("KK"), equalTo(150));
+        assertThat(checkout.checkout("KK"), equalTo(190));
+        assertThat(checkout.checkout("KKKK"), equalTo(240));
+        assertThat(checkout.checkout("KKK"), equalTo(120));
         assertThat(checkout.checkout("HHHHHHHHHH"), equalTo(80));
         assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
         assertThat(checkout.checkout("P"), equalTo(50));
@@ -104,6 +109,7 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
 
 
