@@ -108,7 +108,7 @@ public class CheckoutSolution {
 
     private List<String> getBestComb(List<List<String>> uniqueComb, int index, Integer previousPrice) {
         Integer total = previousPrice;
-        if (index <= uniqueComb.size()) {
+        if (index >= 0) {
             total = 0;
             for (String s : uniqueComb.get(index)) {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
@@ -116,7 +116,7 @@ public class CheckoutSolution {
             if (total >= previousPrice) {
                 total = calculatePrice(uniqueComb, index, previousPrice);
             }else {
-                total = calculatePrice(uniqueComb, index + 1, previousPrice);
+                total = calculatePrice(uniqueComb, index - 1, previousPrice);
             }
         }
         return uniqueComb.get(index);
@@ -245,10 +245,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
-
-
