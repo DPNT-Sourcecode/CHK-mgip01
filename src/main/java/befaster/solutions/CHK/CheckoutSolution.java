@@ -114,19 +114,19 @@ public class CheckoutSolution {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
             if (total >= previousPrice) {
-                total = calculatePrice(uniqueComb, index, previousPrice);
+                total = calculatePrice(uniqueComb.get(index)), index, previousPrice);
             }else {
-                total = calculatePrice(uniqueComb, index - 1, previousPrice);
+                total = calculatePrice(uniqueComb.get(index)), index - 1, previousPrice);
             }
         }
         return uniqueComb.get(index);
     }
 
-    private Integer calculatePrice(List<List<String>> uniqueComb, int index, Integer previousPrice) {
+    private Integer calculatePrice(List<String> comb, int index, Integer previousPrice) {
         Integer total = previousPrice;
-        if (index < uniqueComb.size()) {
+        if (index >=0) {
             total = 0;
-            for (String s : uniqueComb.get(index)) {
+            for (String s : comb) {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
             if (total >= previousPrice) {
@@ -245,3 +245,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
