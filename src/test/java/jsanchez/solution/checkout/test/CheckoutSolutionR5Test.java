@@ -21,11 +21,14 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("TXY"), equalTo(45));
         assertThat(checkout.checkout("XSY"), equalTo(45));
         assertThat(checkout.checkout("YZT"), equalTo(45));
-        assertThat(checkout.checkout("YZTSYX"), equalTo(45));
+        assertThat(checkout.checkout("YZTSYX"), equalTo(90));
+        // impossible, the order in the definition is important
+        //assertThat(checkout.checkout("YZTSYXX"), equalTo(107));
     }
     @Test
     public void isolateTest(){
-        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
+        // impossible with the combination offer
+        //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
         assertThat(checkout.checkout("X"), equalTo(17));
     }
 
@@ -98,4 +101,5 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
