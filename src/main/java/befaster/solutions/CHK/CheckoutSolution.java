@@ -60,7 +60,13 @@ public class CheckoutSolution {
 
         for (ProductsDB.item i : ProductsDB.item.values()) {
             if (i.isHaveCombOffer()) {
-                products = processCombinationOffer(products, i, i.getListCombinationItems());
+                //products = processCombinationOffer(products, i, i.getListCombinationItems());
+                List<List<String>> permComb = GDOPermutation.getInstance().process(products, i, i.getListCombinationItems());
+                // get unique combination
+                List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
+                // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
+                List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size(), 0)
+
             }
         }
 
@@ -195,4 +201,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
