@@ -295,6 +295,8 @@ public class CheckoutSolution {
             return -1;
         }
 
+        orderItemsByPrice();
+        
         for (item i : item.values()) {
             if (i.isHaveCombOffer()) {
                 products = processCombinationOffer(products, i, i.getListCombinationItems());
@@ -351,7 +353,7 @@ public class CheckoutSolution {
                         }
                         foundIt.clear();
                     }
-                    
+
                 }
                 //foundIt.clear();
             }
@@ -432,5 +434,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
