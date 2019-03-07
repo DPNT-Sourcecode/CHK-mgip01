@@ -27,9 +27,10 @@ public class CheckoutSolutionR5Test {
     }
     @Test
     public void isolateTest(){
-        // impossible with the combination offer
+        // impossible with the combination offer, because the patter is met!
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
-        assertThat(checkout.checkout("X"), equalTo(17));
+        //assertThat(checkout.checkout("X"), equalTo(17));
+        assertThat(checkout.checkout("SSS"), equalTo(60));
     }
 
     @Test
@@ -42,7 +43,8 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
         assertThat(checkout.checkout("P"), equalTo(50));
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
-        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
+        // impossible with the combination offer, because the patter is met!
+        //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
         assertThat(checkout.checkout("P"), equalTo(50));
         assertThat(checkout.checkout("SSS"), equalTo(60));
         //assertThat(checkout.checkout("STX"), equalTo(45));
@@ -101,5 +103,6 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
 

@@ -350,25 +350,6 @@ public class CheckoutSolution {
                     }
                 }
             }
-    /*
-            int count = 0;
-            for (String c : combinationItems) {
-                for(String i : items) {
-                    if (i.equals(c)) {
-                        foundIt.add(c);
-                        count++;
-                        if (count == 3) {
-                            sum(45);
-                            foundIt.add(product.getItemRef());
-                            count = 0;
-                        }
-                    }
-                }
-            }
-            if(!foundIt.isEmpty()){
-                items.removeAll(foundIt);
-            }
-        */
         }
 
         return items;
@@ -445,5 +426,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
