@@ -52,7 +52,7 @@ public class CheckoutSolutionR5Test {
         // impossible with the combination offer, because the patter is met!
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
         assertThat(checkout.checkout("P"), equalTo(50));
-        assertThat(checkout.checkout("SSS"), equalTo(60));
+        assertThat(checkout.checkout("SSS"), equalTo(45));
         //assertThat(checkout.checkout("STX"), equalTo(45));
         //assertThat(checkout.checkout("STXSTX"), equalTo(90));
         assertThat(checkout.checkout("SSSZ"), equalTo(81));
@@ -109,3 +109,4 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+

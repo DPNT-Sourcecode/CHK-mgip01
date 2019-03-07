@@ -350,7 +350,7 @@ public class CheckoutSolution {
                         foundIt.clear();
                     }
                 }
-                foundIt.clear();
+                //foundIt.clear();
             }
         }
 
@@ -428,3 +428,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
