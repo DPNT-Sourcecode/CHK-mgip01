@@ -69,7 +69,7 @@ public class CheckoutSolution {
                     List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
                     // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
                     // unique list, index, previousPrice
-                    List<String> bestComb = getBestComb(uniqueComb.get(uniqueComb.size() - 1), uniqueComb.size() - 1, 0);
+                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0);
                     //bestComb.forEach(System.out::println);
                     if (!bestComb.isEmpty()) {
                         sum(45);
@@ -106,24 +106,25 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
-    private List<String> getBestComb(List<String> uniqueComb, int index, Integer previousPrice) {
+    private List<String> getBestComb(List<List<String>> uniqueComb, int index, Integer previousPrice) {
         Integer total = previousPrice;
-        //List<String> bComb = uniqueComb.get(index);
+        List<String> bComb = uniqueComb.get(index);
         if (index >= 0) {
             total = 0;
-            for (String s : uniqueComb) {
+            for (String s : bComb) {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
             if (total >= previousPrice) {
-                uniqueComb =getBestComb(uniqueComb, index -1, total);
+                bComb =getBestComb(uniqueComb, index -1, total);
                 //total = calculatePrice(uniqueComb, index, previousPrice);
             }else {
-                uniqueComb =getBestComb(uniqueComb, index -1, previousPrice);
+                bComb =getBestComb(uniqueComb, index -1, previousPrice);
                 //total = calculatePrice(uniqueComb, index - 1, previousPrice);
             }
         }
-        return uniqueComb;
+        return bComb;
     }
+
 
     private Integer calculatePrice(List<List<String>> uniqueComb, int index, Integer previousPrice) {
         Integer total = previousPrice;
@@ -248,6 +249,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
