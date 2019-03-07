@@ -69,7 +69,13 @@ public class CheckoutSolution {
                 // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
                 // unique list, index, previousPrice
                 List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size()-1, 0);
-                bestComb.forEach(System.out::println);
+                //bestComb.forEach(System.out::println);
+                if(!bestComb.isEmpty()) {
+                    sum(45);
+                    for (String s : bestComb) {
+                        products.remove(s);
+                    }
+                }
             }
         }
 
@@ -237,6 +243,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
