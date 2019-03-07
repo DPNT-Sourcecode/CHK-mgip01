@@ -21,6 +21,7 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("TXY"), equalTo(45));
         assertThat(checkout.checkout("XSY"), equalTo(45));
         assertThat(checkout.checkout("YZT"), equalTo(45));
+        // impossible, depends of the combination of items!!
         assertThat(checkout.checkout("YZTSYX"), equalTo(90));
         // impossible, the order in the definition is important
         //assertThat(checkout.checkout("YZTSYXX"), equalTo(107));
@@ -103,6 +104,7 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
 
 

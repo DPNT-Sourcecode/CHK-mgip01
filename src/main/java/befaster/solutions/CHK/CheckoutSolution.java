@@ -157,11 +157,12 @@ enum item {
 
     public ArrayList<String> getListCombinationItems(){
         ArrayList<String> combinationItems = new ArrayList<String>();
+        combinationItems.add("Z");
         combinationItems.add("S");
         combinationItems.add("T");
-        combinationItems.add("X");
         combinationItems.add("Y");
-        combinationItems.add("Z");
+        combinationItems.add("X");
+
         return combinationItems;
     }
 }
@@ -427,6 +428,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
