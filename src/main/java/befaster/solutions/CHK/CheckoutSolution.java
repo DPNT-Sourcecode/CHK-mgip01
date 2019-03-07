@@ -153,7 +153,7 @@ enum item {
         return combOffers;
     }
 
-    public ArrayList<String> getListCombinationItems(){
+    public ArrayList<String> getListCombinationItems() {
         ArrayList<String> combinationItems = new ArrayList<String>();
         combinationItems.add("Z");
         combinationItems.add("S");
@@ -223,9 +223,9 @@ enum freeItemOffer {
 
 
 enum combinationOffer {
-    S(3,45, Arrays.asList(item.T, item.X, item.Y, item.Z)), T(3,45, Arrays.asList(item.S, item.X, item.Y, item.Z)),
-    X(3,45, Arrays.asList(item.T, item.S, item.Y, item.Z)), Y(3,45, Arrays.asList(item.T, item.X, item.S, item.Z)),
-    Z(3,45, Arrays.asList(item.T, item.X, item.Y, item.S));
+    S(3, 45, Arrays.asList(item.T, item.X, item.Y, item.Z)), T(3, 45, Arrays.asList(item.S, item.X, item.Y, item.Z)),
+    X(3, 45, Arrays.asList(item.T, item.S, item.Y, item.Z)), Y(3, 45, Arrays.asList(item.T, item.X, item.S, item.Z)),
+    Z(3, 45, Arrays.asList(item.T, item.X, item.Y, item.S));
     private int numItems;
     private int price;
     private List<item> itemsRefList;
@@ -239,9 +239,11 @@ enum combinationOffer {
     public int getNumItems() {
         return numItems;
     }
+
     public int getPrice() {
         return price;
     }
+
     public List<item> getItemsRefList() {
         return itemsRefList;
     }
@@ -293,8 +295,8 @@ public class CheckoutSolution {
             return -1;
         }
 
-        for(item i : item.values()){
-            if(i.isHaveCombOffer()){
+        for (item i : item.values()) {
+            if (i.isHaveCombOffer()) {
                 products = processCombinationOffer(products, i, i.getListCombinationItems());
             }
         }
@@ -332,22 +334,30 @@ public class CheckoutSolution {
         //combinationItems.removeIf(p -> p.equals(product.getItemRef()));
         List<String> foundIt = new ArrayList<String>();
         List<Integer> foundIndex = new ArrayList<Integer>();
-        if(!collect.isEmpty()) {
-            for(String p : collect) {
+        if (!collect.isEmpty()) {
+            for (String p : collect) {
                 foundIt.clear();
                 for (String c : combinationItems) {
-                    if (items.contains(c)) {
-                        foundIt.add(items.get(items.indexOf(c)));
-                        //items.remove(items.indexOf(c));
-                    }
-
-                    if (foundIt.size() == 2) {
+                    if (items.stream().filter(i -> i.equals(c)).collect(Collectors.toList()).size() >= 3) {
+                        items.remove(c);
+                        items.remove(c);
+                        items.remove(c);
                         sum(45);
-                        items.remove(p);
-                        for (String s : foundIt) {
-                            items.remove(s);
+                        break;
+                    } else {
+                        if (items.contains(c)) {
+                            foundIt.add(items.get(items.indexOf(c)));
+                            //items.remove(items.indexOf(c));
                         }
-                        foundIt.clear();
+
+                        if (foundIt.size() == 2) {
+                            sum(45);
+                            items.remove(p);
+                            for (String s : foundIt) {
+                                items.remove(s);
+                            }
+                            foundIt.clear();
+                        }
                     }
                 }
                 //foundIt.clear();
@@ -394,6 +404,7 @@ public class CheckoutSolution {
         }
         return items;
     }
+
     private List<String> processOffer(List<String> items, final item product) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
 
@@ -428,3 +439,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
