@@ -296,12 +296,7 @@ public class CheckoutSolution {
 
         List<item> list = new ArrayList<>(Arrays.asList(item.values()));
 
-        Collections.sort(list, new ToComparable<item>() {
-           @Override
-           public Comparable toComparable(item i){
-               return i == null ? null : i.getPrice();
-           }
-        });
+        Collections.sort(list,
 
 
 
@@ -442,3 +437,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
