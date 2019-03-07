@@ -294,19 +294,6 @@ public class CheckoutSolution {
             return -1;
         }
 
-        List<item> list = new ArrayList<>(Arrays.asList(item.values()));
-
-        Collections.sort(list, new Comparator<item>() {
-            @Override
-            public int compare(item o1, item o2) {
-                if(o1.getPrice()>=o2.getPrice()){
-                    return o1.getPrice();
-                }else{
-                    return o2.getPrice();
-                }
-            }
-        });
-
 
         for (item i : item.values()) {
             if (i.isHaveCombOffer()) {
@@ -445,5 +432,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
