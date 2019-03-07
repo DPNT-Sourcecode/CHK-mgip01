@@ -59,7 +59,7 @@ public class CheckoutSolution {
             return -1;
         }
 
-
+    // TODO review the cases with permutation group
         for (ProductsDB.item i : ProductsDB.item.values()) {
             if (i.isHaveCombOffer()) {
                 //products = processCombinationOffer(products, i, i.getListCombinationItems());
@@ -237,6 +237,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
