@@ -108,7 +108,7 @@ public class CheckoutSolution {
             if (total >= previousPrice) {
                 total = calculatePrice(uniqueComb, index, previousPrice);
             }else {
-                total = calculatePrice(uniqueComb, index - 1, previousPrice);
+                total = calculatePrice(uniqueComb, index + 1, previousPrice);
             }
         }
         return uniqueComb.get(index);
@@ -237,6 +237,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
