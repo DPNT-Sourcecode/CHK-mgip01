@@ -330,7 +330,25 @@ public class CheckoutSolution {
         // remove from combination list the root item
         combinationItems.removeIf(p -> p.equals(product.getItemRef()));
         List<String> foundIt = new ArrayList<String>();
+        List<Integer> foundIndex = new ArrayList<Integer>();
         if(!collect.isEmpty()) {
+            for(String p : collect) {
+                foundIndex.add(items.indexOf(p));
+                for (String c : combinationItems) {
+                    if (items.contains(c)) {
+                        foundIndex.add(items.indexOf(c));
+                        //items.remove(items.indexOf(c));
+                    }
+
+                    if (foundIt.size() == 3) {
+                        sum(45);
+                        for (Integer i : foundIndex) {
+                            items.remove(i);
+                        }
+                    }
+                }
+            }
+    /*
             int count = 0;
             for (String c : combinationItems) {
                 for(String i : items) {
@@ -349,6 +367,7 @@ public class CheckoutSolution {
                 items.removeAll(foundIt);
             }
         }
+        */
         return items;
     }
 
@@ -423,6 +442,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
