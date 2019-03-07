@@ -10,37 +10,35 @@ import java.util.stream.Stream;
 
 // item representation
 enum item {
-    // itemRef, price, haveOffer, haveFreeItemOffer, haveCombOffer
-    A("A", 50, true, false, false), // 3A for 130, 5A for 200
-    B("B", 30, true, false, false), // 2B for 45
-    C("C", 20, false, false, false),
-    D("D", 15, false, false, false),
-    E("E", 40, false, true, false), // 2E get one B
-
-    // free
-    F("F", 10, false, true, false), // 2F get one F free
-
-    G("G", 20, false, false, false),
-    H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
-    I("I", 35, false, false, false),
-    J("J", 60, false, false, false),
-    K("K", 70, true, false, false), // | 2K for 120 |
-    L("L", 90, false, false, false),
-    M("M", 15, false, false, false),
-    N("N", 40, false, true, false), // | 3N get one M
-    // free |
     O("O", 10, false, false, false),
-    P("P", 50, true, false, false), // | 5P for 200 |
-    Q("Q", 30, true, false, false), // | 3Q for 80 |
-    R("R", 50, false, true, false), // | 3R get one Q free |
+    F("F", 10, false, true, false), // 2F get one F free
+    H("H", 10, true, false, false), // 5H for 45, 10H for 80 |
+    D("D", 15, false, false, false),
+    M("M", 15, false, false, false),
+    X("X", 17, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+
+    C("C", 20, false, false, false),
+    G("G", 20, false, false, false),
     S("S", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
     T("T", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
-    U("U", 40, false, true, false), // | 3U get one U free |
-    V("V", 50, true, false, false), // | 2V for 90, 3V for 130 |
-    W("W", 20, false, false, false),
-    X("X", 17, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
     Y("Y", 20, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
-    Z("Z", 21, false, false, true); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+    W("W", 20, false, false, false),
+    Z("Z", 21, false, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+    B("B", 30, true, false, false), // 2B for 45
+    Q("Q", 30, true, false, false), // | 3Q for 80 |
+    I("I", 35, false, false, false),
+    E("E", 40, false, true, false), // 2E get one B
+    N("N", 40, false, true, false), // | 3N get one M
+    U("U", 40, false, true, false), // | 3U get one U free |
+    // itemRef, price, haveOffer, haveFreeItemOffer, haveCombOffer
+    A("A", 50, true, false, false), // 3A for 130, 5A for 200
+    P("P", 50, true, false, false), // | 5P for 200 |
+    R("R", 50, false, true, false), // | 3R get one Q free |
+    V("V", 50, true, false, false), // | 2V for 90, 3V for 130 |
+    J("J", 60, false, false, false),
+    K("K", 70, true, false, false), // | 2K for 120 |
+    L("L", 90, false, false, false);
+
 
     private String itemRef;
     private int price;
@@ -432,6 +430,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
