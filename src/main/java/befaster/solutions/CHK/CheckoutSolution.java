@@ -116,7 +116,7 @@ public class CheckoutSolution {
             for (String s : uniqueComb.get(index)) {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
-            
+
             if (total >= previousPrice) {
                 bComb = uniqueComb.get(index);
 
@@ -125,6 +125,8 @@ public class CheckoutSolution {
             if((index -1) >=0 ) {
                 getBestComb(uniqueComb, index - 1, total, bComb);
                 //total = calculatePrice(uniqueComb, index, previousPrice);
+            }else{
+                return bComb;
             }
         }
         return bComb;
@@ -254,3 +256,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
