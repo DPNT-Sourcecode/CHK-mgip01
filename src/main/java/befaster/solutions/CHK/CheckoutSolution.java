@@ -69,7 +69,7 @@ public class CheckoutSolution {
                 // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
                 // unique list, index, previousPrice
                 List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size(), 0);
-
+                bestComb.forEach(System.out::println);
             }
         }
 
@@ -106,9 +106,12 @@ public class CheckoutSolution {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
             if (total >= previousPrice) {
-                total = calculatePrice(uniqueComb, index, Integer previousPrice);
+                total = calculatePrice(uniqueComb, index, previousPrice);
+            }else {
+                total = calculatePrice(uniqueComb, index + 1, previousPrice);
             }
         }
+        return uniqueComb.get(index);
     }
 
     private Integer calculatePrice(List<List<String>> uniqueComb, int index, Integer previousPrice) {
@@ -234,4 +237,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
