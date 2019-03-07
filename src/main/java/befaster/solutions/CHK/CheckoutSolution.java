@@ -133,24 +133,6 @@ public class CheckoutSolution {
         return bComb;
     }
 
-
-    private Integer calculatePrice(List<List<String>> uniqueComb, int index, Integer previousPrice) {
-        Integer total = previousPrice;
-        if (index < uniqueComb.size()) {
-            total = 0;
-            for (String s : uniqueComb.get(index)) {
-                total = total + ProductsDB.item.valueOf(s).getPrice();
-            }
-            if (total >= previousPrice) {
-                total = calculatePrice(uniqueComb, index + 1, total);
-            } else {
-                total = calculatePrice(uniqueComb, index + 1, previousPrice);
-            }
-        }
-
-        return total;
-    }
-
     private List<String> processCombinationOffer(List<String> items, final ProductsDB.item product, List<String> combinationItems) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
         // must be order the items by price first to always favor the customer when applying special offers
@@ -257,6 +239,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
