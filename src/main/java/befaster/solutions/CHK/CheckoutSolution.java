@@ -69,7 +69,7 @@ public class CheckoutSolution {
                     List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
                     // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
                     // unique list, index, previousPrice
-                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0);
+                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0,uniqueComb.get(uniqueComb.size() - 1));
                     //bestComb.forEach(System.out::println);
                     if (!bestComb.isEmpty()) {
                         sum(45);
@@ -119,7 +119,7 @@ public class CheckoutSolution {
             if (total >= previousPrice) {
                 bComb = uniqueComb.get(index);
                 if((index -1) >=0 ) {
-                    bComb = getBestComb(uniqueComb, index - 1, total, bComb);
+                    getBestComb(uniqueComb, index - 1, total, bComb);
                     //total = calculatePrice(uniqueComb, index, previousPrice);
                 }
             }else {
@@ -256,6 +256,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
