@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -328,7 +329,8 @@ public class CheckoutSolution {
 
     private List<String> processCombinationOffer(List<String> items, final item product, List<String> combinationItems) {
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
-
+        // must be order the items by price first to always favor the customer when applying special offers
+        items.sort(Comparator.comparing());
         // remove from combination list the root item
         combinationItems.removeIf(p -> p.equals(product.getItemRef()));
         List<String> foundIt = new ArrayList<String>();
@@ -428,4 +430,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
