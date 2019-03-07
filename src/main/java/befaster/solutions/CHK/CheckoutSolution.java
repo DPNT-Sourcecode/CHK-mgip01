@@ -299,6 +299,7 @@ public class CheckoutSolution {
                 products = processCombinationOffer(products, i, i.getListCombinationItems());
             }
         }
+
         for (item i : item.values()) {
             if (i.isHaveFreeItemOffer()) {
                 // calculate price by item/product and get the remain items in the collection
@@ -340,7 +341,7 @@ public class CheckoutSolution {
                         //items.remove(items.indexOf(c));
                     }
 
-                    if (foundIt.size() == 3) {
+                    if (foundIndex.size() == 3) {
                         sum(45);
                         for (Integer i : foundIndex) {
                             items.remove(i);
@@ -366,8 +367,9 @@ public class CheckoutSolution {
             if(!foundIt.isEmpty()){
                 items.removeAll(foundIt);
             }
-        }
         */
+        }
+
         return items;
     }
 
@@ -442,6 +444,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
