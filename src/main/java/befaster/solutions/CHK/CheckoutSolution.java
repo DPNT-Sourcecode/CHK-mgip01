@@ -119,11 +119,12 @@ public class CheckoutSolution {
 
             if (total >= previousPrice) {
                 bComb = uniqueComb.get(index);
+                previousPrice = total;
 
             }
 
             if((index -1) >=0 ) {
-                bComb = getBestComb(uniqueComb, index - 1, total, bComb);
+                bComb = getBestComb(uniqueComb, index - 1, previousPrice, bComb);
                 //total = calculatePrice(uniqueComb, index, previousPrice);
             }else{
                 return bComb;
@@ -256,5 +257,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
