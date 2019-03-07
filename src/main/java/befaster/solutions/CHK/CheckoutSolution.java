@@ -346,6 +346,7 @@ public class CheckoutSolution {
                         for (Integer i : foundIndex) {
                             items.remove(i);
                         }
+                        foundIndex.clear();
                     }
                 }
             }
@@ -444,9 +445,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
-
