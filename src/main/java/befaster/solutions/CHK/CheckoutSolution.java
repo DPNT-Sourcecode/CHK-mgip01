@@ -221,7 +221,6 @@ enum freeItemOffer {
     }
 }
 
-
 enum combinationOffer {
     S(3, 45, Arrays.asList(item.T, item.X, item.Y, item.Z)), T(3, 45, Arrays.asList(item.S, item.X, item.Y, item.Z)),
     X(3, 45, Arrays.asList(item.T, item.S, item.Y, item.Z)), Y(3, 45, Arrays.asList(item.T, item.X, item.S, item.Z)),
@@ -295,7 +294,16 @@ public class CheckoutSolution {
             return -1;
         }
 
-        Collections.sort();
+        List<item> list = new ArrayList<>(Arrays.asList(item.values()));
+
+        Collections.sort(list, new ToComparable<item>() {
+           @Override
+           public Comparable toComparable(item i){
+               return i == null ? null : i.getPrice();
+           }
+        });
+
+
 
         for (item i : item.values()) {
             if (i.isHaveCombOffer()) {
@@ -434,7 +442,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
