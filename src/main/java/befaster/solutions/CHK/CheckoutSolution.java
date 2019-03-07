@@ -106,25 +106,25 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
-    private List<String> getBestComb(List<List<String>> uniqueComb, int index, Integer previousPrice) {
+    private List<String> getBestComb(List<List<String>> uniqueComb, int index, Integer previousPrice, List<String> prevBComb) {
         Integer total = previousPrice;
-        List<String> bComb = uniqueComb.get(index);
+        List<String> bComb = prevBComb;
 
         if (index >= 0) {
             total = 0;
 
-            for (String s : bComb) {
+            for (String s : uniqueComb.get(index)) {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
             if (total >= previousPrice) {
-
+                bComb = uniqueComb.get(index);
                 if((index -1) >=0 ) {
-                    bComb = getBestComb(uniqueComb, index - 1, total);
+                    bComb = getBestComb(uniqueComb, index - 1, total, bComb);
                     //total = calculatePrice(uniqueComb, index, previousPrice);
                 }
             }else {
                 if((index -1) >=0 ) {
-                    bComb = getBestComb(uniqueComb, index - 1, previousPrice);
+                    bComb = getBestComb(uniqueComb, index - 1, previousPrice, bComb);
                     //total = calculatePrice(uniqueComb, index - 1, previousPrice);
                 }
             }
@@ -256,6 +256,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
