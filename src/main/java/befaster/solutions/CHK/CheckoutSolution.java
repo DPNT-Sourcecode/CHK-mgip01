@@ -344,7 +344,7 @@ public class CheckoutSolution {
                     if (foundIndex.size() == 3) {
                         sum(45);
                         for (Integer i : foundIndex) {
-                            items.remove(i);
+                            items.remove(i.intValue());
                         }
                         foundIndex.clear();
                     }
@@ -445,3 +445,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
