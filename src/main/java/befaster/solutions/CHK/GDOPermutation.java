@@ -23,7 +23,7 @@ public class GDOPermutation {
         return instance;
     }
 
-    protected List<List<String>> process(List<String> items, final ProductsDB.item product, List<String> combinationList) {
+    protected List<List<String>> process(final List<String> items, final ProductsDB.item product, List<String> combinationList) {
         String[] itemList = new String[items.size()];
         itemList = items.toArray(itemList);
         combination(itemList, _numGroupItems);
@@ -74,3 +74,4 @@ public class GDOPermutation {
         return comb;
     }
 }
+

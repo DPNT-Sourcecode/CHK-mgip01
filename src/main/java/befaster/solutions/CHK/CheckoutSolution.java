@@ -63,17 +63,19 @@ public class CheckoutSolution {
         for (ProductsDB.item i : ProductsDB.item.values()) {
             if (i.isHaveCombOffer()) {
                 //products = processCombinationOffer(products, i, i.getListCombinationItems());
-                List<List<String>> permComb = GDOPermutation.getInstance().process(products, i, i.getListCombinationItems());
-                // get unique combination
-                List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
-                // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
-                // unique list, index, previousPrice
-                List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size()-1, 0);
-                //bestComb.forEach(System.out::println);
-                if(!bestComb.isEmpty()) {
-                    sum(45);
-                    for (String s : bestComb) {
-                        products.remove(s);
+                if(products.size()>=3) {
+                    List<List<String>> permComb = GDOPermutation.getInstance().process(products, i, i.getListCombinationItems());
+                    // get unique combination
+                    List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
+                    // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
+                    // unique list, index, previousPrice
+                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0);
+                    //bestComb.forEach(System.out::println);
+                    if (!bestComb.isEmpty()) {
+                        sum(45);
+                        for (String s : bestComb) {
+                            products.remove(s);
+                        }
                     }
                 }
             }
@@ -243,6 +245,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
