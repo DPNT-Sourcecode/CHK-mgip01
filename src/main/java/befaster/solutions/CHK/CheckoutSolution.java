@@ -69,7 +69,7 @@ public class CheckoutSolution {
                     List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
                     // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
                     // unique list, index, previousPrice
-                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1, 0);
+                    List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size() - 1,uniqueComb.size() - 1, 0);
                     //bestComb.forEach(System.out::println);
                     if (!bestComb.isEmpty()) {
                         sum(45);
@@ -106,9 +106,9 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
-    private List<String> getBestComb(List<List<String>> uniqueComb, int index, Integer previousPrice) {
+    private List<String> getBestComb(List<List<String>> uniqueComb, int index, int prevIndex, Integer previousPrice) {
         Integer total = previousPrice;
-        List<String> bComb = uniqueComb.get(index);
+        List<String> bComb = uniqueComb.get(prevIndex);
         if (index >= 0) {
             total = 0;
             for (String s : bComb) {
@@ -116,12 +116,12 @@ public class CheckoutSolution {
             }
             if (total >= previousPrice) {
                 if((index -1) >=0 ) {
-                    bComb = getBestComb(uniqueComb, index - 1, total);
+                    bComb = getBestComb(uniqueComb, index - 1, index, total);
                     //total = calculatePrice(uniqueComb, index, previousPrice);
                 }
             }else {
                 if((index -1) >=0 ) {
-                    bComb = getBestComb(uniqueComb, index - 1, previousPrice);
+                    bComb = getBestComb(uniqueComb, index - 1, index, previousPrice);
                     //total = calculatePrice(uniqueComb, index - 1, previousPrice);
                 }
             }
@@ -253,4 +253,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 

@@ -33,7 +33,7 @@ public class CheckoutSolutionR5Test {
         //assertThat(checkout.checkout("X"), equalTo(17));
         //assertThat(checkout.checkout("YZTSYX"), equalTo(90));
         assertThat(checkout.checkout("SSSZ"), equalTo(65));
-        //assertThat(checkout.checkout("ZZZS"), equalTo(65));
+        assertThat(checkout.checkout("ZZZS"), equalTo(65));
         //
         //assertThat(checkout.checkout("STXS"), equalTo(62));
     }
@@ -110,4 +110,5 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
