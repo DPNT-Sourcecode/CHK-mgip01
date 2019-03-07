@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import befaster.solutions.CHK.befaster.solutions.utility.support.Product;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -65,7 +67,8 @@ public class CheckoutSolution {
                 // get unique combination
                 List<List<String>> uniqueComb = permComb.stream().distinct().collect(Collectors.toList());
                 // calculate the best comb to apply the discount (the most expensive comb to favor the customer)
-                List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size(), 0)
+                // unique list, index, previousPrice
+                List<String> bestComb = getBestComb(uniqueComb, uniqueComb.size(), 0);
 
             }
         }
@@ -93,6 +96,36 @@ public class CheckoutSolution {
 
 
         return getTotalPrice();
+    }
+
+    private List<String> getBestComb(List<List<String>> uniqueComb, int index, Integer previousPrice) {
+        Integer total = previousPrice;
+        if (index <= uniqueComb.size()) {
+            total = 0;
+            for (String s : uniqueComb.get(index)) {
+                total = total + ProductsDB.item.valueOf(s).getPrice();
+            }
+            if (total >= previousPrice) {
+                total = calculatePrice(uniqueComb, index, Integer previousPrice);
+            }
+        }
+    }
+
+    private Integer calculatePrice(List<List<String>> uniqueComb, int index, Integer previousPrice) {
+        Integer total = previousPrice;
+        if (index < uniqueComb.size()) {
+            total = 0;
+            for (String s : uniqueComb.get(index)) {
+                total = total + ProductsDB.item.valueOf(s).getPrice();
+            }
+            if (total >= previousPrice) {
+                total = calculatePrice(uniqueComb, index + 1, total);
+            } else {
+                total = calculatePrice(uniqueComb, index + 1, previousPrice);
+            }
+        }
+
+        return total;
     }
 
     private List<String> processCombinationOffer(List<String> items, final ProductsDB.item product, List<String> combinationItems) {
@@ -201,3 +234,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
