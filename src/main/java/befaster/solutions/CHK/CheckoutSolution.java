@@ -123,7 +123,7 @@ public class CheckoutSolution {
             }
 
             if((index -1) >=0 ) {
-                getBestComb(uniqueComb, index - 1, total, bComb);
+                bComb = getBestComb(uniqueComb, index - 1, total, bComb);
                 //total = calculatePrice(uniqueComb, index, previousPrice);
             }else{
                 return bComb;
@@ -256,4 +256,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
