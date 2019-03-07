@@ -334,15 +334,16 @@ public class CheckoutSolution {
         List<Integer> foundIndex = new ArrayList<Integer>();
         if(!collect.isEmpty()) {
             for(String p : collect) {
-                foundIt.add(p);
+                foundIt.clear();
                 for (String c : combinationItems) {
                     if (items.contains(c)) {
                         foundIt.add(items.get(items.indexOf(c)));
                         //items.remove(items.indexOf(c));
                     }
 
-                    if (foundIt.size() == 3) {
+                    if (foundIt.size() == 2) {
                         sum(45);
+                        items.remove(p);
                         for (String s : foundIt) {
                             items.remove(s);
                         }
@@ -427,6 +428,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
