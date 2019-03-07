@@ -338,27 +338,20 @@ public class CheckoutSolution {
             for (String p : collect) {
                 foundIt.clear();
                 for (String c : combinationItems) {
-                    if (items.stream().filter(i -> i.equals(c)).collect(Collectors.toList()).size() >= 3) {
-                        items.remove(c);
-                        items.remove(c);
-                        items.remove(c);
-                        sum(45);
-                        break;
-                    } else {
-                        if (items.contains(c)) {
-                            foundIt.add(items.get(items.indexOf(c)));
-                            //items.remove(items.indexOf(c));
-                        }
-
-                        if (foundIt.size() == 2) {
-                            sum(45);
-                            items.remove(p);
-                            for (String s : foundIt) {
-                                items.remove(s);
-                            }
-                            foundIt.clear();
-                        }
+                    if (items.contains(c)) {
+                        foundIt.add(items.get(items.indexOf(c)));
+                        //items.remove(items.indexOf(c));
                     }
+
+                    if (foundIt.size() == 2) {
+                        sum(45);
+                        items.remove(p);
+                        for (String s : foundIt) {
+                            items.remove(s);
+                        }
+                        foundIt.clear();
+                    }
+                    
                 }
                 //foundIt.clear();
             }
@@ -439,4 +432,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
