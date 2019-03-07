@@ -75,4 +75,3 @@ public class GDOPermutation {
         return comb;
     }
 }
-

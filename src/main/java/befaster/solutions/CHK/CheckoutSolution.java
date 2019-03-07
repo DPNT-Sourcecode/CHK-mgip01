@@ -61,7 +61,7 @@ public class CheckoutSolution {
 
     // TODO review the cases with permutation group
         for (ProductsDB.item i : ProductsDB.item.values()) {
-            if (i.isHaveCombOffer()) {
+            if (i.isHaveCombOffer() && products.contains(i.getItemRef())) {
                 //products = processCombinationOffer(products, i, i.getListCombinationItems());
                 if(products.size()>=3) {
                     List<List<String>> permComb = GDOPermutation.getInstance().process(products, i, i.getListCombinationItems());
@@ -82,21 +82,21 @@ public class CheckoutSolution {
         }
 
         for (ProductsDB.item i : ProductsDB.item.values()) {
-            if (i.isHaveFreeItemOffer()) {
+            if (i.isHaveFreeItemOffer() && products.contains(i.getItemRef())) {
                 // calculate price by item/product and get the remain items in the collection
                 products = processFreeItemOffer(products, i);
             }
         }
 
         for (ProductsDB.item i : ProductsDB.item.values()) {
-            if (i.isHaveOffer()) {
+            if (i.isHaveOffer() && products.contains(i.getItemRef())) {
                 // calculate price by item/product and get the remain items in the collection
                 products = processOffer(products, i);
             }
         }
 
         for (ProductsDB.item i : ProductsDB.item.values()) {
-            if (!i.isHaveFreeItemOffer() && !i.isHaveOffer()) {
+            if (!i.isHaveFreeItemOffer() && !i.isHaveOffer() && products.contains(i.getItemRef())) {
                 // calculate price by item/product and get the remain items in the collection
                 products = processItems(products, i);
             }
@@ -239,7 +239,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
