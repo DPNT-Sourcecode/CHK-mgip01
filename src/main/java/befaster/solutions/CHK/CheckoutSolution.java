@@ -115,11 +115,15 @@ public class CheckoutSolution {
                 total = total + ProductsDB.item.valueOf(s).getPrice();
             }
             if (total >= previousPrice) {
-                bComb =getBestComb(uniqueComb, index -1, total);
-                //total = calculatePrice(uniqueComb, index, previousPrice);
+                if((index -1) >=0 ) {
+                    bComb = getBestComb(uniqueComb, index - 1, total);
+                    //total = calculatePrice(uniqueComb, index, previousPrice);
+                }
             }else {
-                bComb =getBestComb(uniqueComb, index -1, previousPrice);
-                //total = calculatePrice(uniqueComb, index - 1, previousPrice);
+                if((index -1) >=0 ) {
+                    bComb = getBestComb(uniqueComb, index - 1, previousPrice);
+                    //total = calculatePrice(uniqueComb, index - 1, previousPrice);
+                }
             }
         }
         return bComb;
@@ -249,3 +253,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
