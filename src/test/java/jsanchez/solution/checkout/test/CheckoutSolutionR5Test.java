@@ -30,12 +30,12 @@ public class CheckoutSolutionR5Test {
     public void isolateTest(){
         // impossible with the combination offer, because the patter is met!
         //assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),equalTo(853));
-        assertThat(checkout.checkout("X"), equalTo(17));
+        //assertThat(checkout.checkout("X"), equalTo(17));
         //assertThat(checkout.checkout("YZTSYX"), equalTo(90));
-        assertThat(checkout.checkout("SSSZ"), equalTo(65));
-        assertThat(checkout.checkout("ZZZS"), equalTo(65));
+        //assertThat(checkout.checkout("SSSZ"), equalTo(65));
+        //assertThat(checkout.checkout("ZZZS"), equalTo(65));
         //
-        //assertThat(checkout.checkout("STXS"), equalTo(62));
+        assertThat(checkout.checkout("STXS"), equalTo(62));
     }
 
     @Test
@@ -110,5 +110,6 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
 
 
