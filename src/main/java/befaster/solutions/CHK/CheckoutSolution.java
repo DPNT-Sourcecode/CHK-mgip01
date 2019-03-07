@@ -334,19 +334,19 @@ public class CheckoutSolution {
         List<Integer> foundIndex = new ArrayList<Integer>();
         if(!collect.isEmpty()) {
             for(String p : collect) {
-                foundIndex.add(items.indexOf(p));
+                foundIt.add(p);
                 for (String c : combinationItems) {
                     if (items.contains(c)) {
-                        foundIndex.add(items.indexOf(c));
+                        foundIt.add(items.get(items.indexOf(c)));
                         //items.remove(items.indexOf(c));
                     }
 
-                    if (foundIndex.size() == 3) {
+                    if (foundIt.size() == 3) {
                         sum(45);
-                        for (Integer i : foundIndex) {
-                            items.remove(i.intValue());
+                        for (String s : foundIt) {
+                            items.remove(s);
                         }
-                        foundIndex.clear();
+                        foundIt.clear();
                     }
                 }
             }
@@ -445,4 +445,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 

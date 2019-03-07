@@ -18,6 +18,10 @@ public class CheckoutSolutionR5Test {
     @Test
     public void combinationTest(){
         assertThat(checkout.checkout("STX"), equalTo(45));
+        assertThat(checkout.checkout("TXY"), equalTo(45));
+        assertThat(checkout.checkout("XSY"), equalTo(45));
+        assertThat(checkout.checkout("YZT"), equalTo(45));
+        assertThat(checkout.checkout("YZTSYX"), equalTo(45));
     }
     @Test
     public void isolateTest(){
@@ -94,3 +98,4 @@ public class CheckoutSolutionR5Test {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 }
+
